@@ -1,5 +1,12 @@
-require 'rails_helper'
 
-RSpec.describe Task, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+require 'rails_helper'
+describe Task do
+  describe '#create' do
+    it "バリデーション" do
+
+     task = Task.new(title: nil, status: nil)
+
+    expect(task.valid?).to eq(false)
+    end
+  end
 end
