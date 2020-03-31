@@ -1,12 +1,11 @@
 
 require 'rails_helper'
-describe Task do
+
+RSpec.describe Task, type: :model do
   describe '#create' do
-    it "バリデーション" do
-
-     task = Task.new(title: nil, status: nil)
-
-    expect(task.valid?).to eq(false)
+    let(:task){ build :task}
+    it "has a valid factory" do
+      expect(task).to be_valid
     end
   end
 end
