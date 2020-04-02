@@ -16,8 +16,8 @@ RSpec.describe Task, type: :model do
     end
 
     it 'is invalid without status' do
-      @task = Task.new(status: nil)
-      expect(@task.valid?).to eq(false)
+      task = Task.new(status: nil)
+      expect(task.valid?).to eq(false)
     end
 
     it 'is valid with another title' do
@@ -30,12 +30,12 @@ RSpec.describe Task, type: :model do
         title: 'hoge',
         status: :doing
       )
-      @task = Task.new(
+      task = Task.new(
         title: 'hoge',
         status: :doing
       )
-      @task.valid?
-      expect(@task.valid?).to eq(false)
+      task.valid?
+      expect(task.valid?).to eq(false)
     end
   end
 end
