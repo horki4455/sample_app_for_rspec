@@ -11,7 +11,6 @@ RSpec.describe Task, type: :model do
 
     it 'is invalid without title' do
       task = Task.new(title: nil)
-      expect(task).not_to be_valid
       expect(task).to be_invalid
     end
 
