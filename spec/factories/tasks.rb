@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :task do
     title { "hoge" }
-    status { "doing" }
+    initialize_with { Task.find_or_create_by(title: title)}
+    status {:doing}
   end
 end
