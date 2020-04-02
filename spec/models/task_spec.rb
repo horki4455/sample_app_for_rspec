@@ -9,8 +9,9 @@ RSpec.describe Task, type: :model do
     end
 
     it 'is invalid without title' do
-      @task = Task.new(title: nil)
-      expect(@task.valid?).to eq(false)
+      task = Task.new(title: nil)
+      expect(task).not_to be_valid
+      expect(task).to be_invalid
     end
 
     it 'is invalid without status' do
