@@ -3,7 +3,8 @@ require 'rails_helper'
 
 RSpec.describe Task, type: :model do
   describe '#create' do
-    let(:task){ build :task}
+    let(:task){ create :task}
+
     it 'is valid with all attributes' do
       expect(task).to be_valid
     end
