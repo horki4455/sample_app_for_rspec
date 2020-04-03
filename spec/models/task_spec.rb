@@ -33,8 +33,7 @@ RSpec.describe Task, type: :model do
         title: 'hoge',
         status: :doing
       )
-      task.valid?
-      expect(task.valid?).to eq(false)
+      expect(task).to be_invalid
     end
   end
 end
