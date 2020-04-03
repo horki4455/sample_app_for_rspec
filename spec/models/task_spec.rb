@@ -20,8 +20,8 @@ RSpec.describe Task, type: :model do
     end
 
     it 'is valid with another title' do
-      @another_task = Task.create(title: 'hoge2', status: :doing)
-      expect(@another_task).to be_valid
+      another_task = Task.create(title: 'hoge2', status: :doing)
+      expect(another_task).to be_valid
     end
 
     it "is invalid with a duplicate title" do
