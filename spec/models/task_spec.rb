@@ -16,7 +16,7 @@ RSpec.describe Task, type: :model do
 
     it 'is invalid without status' do
       task = Task.new(status: nil)
-      expect(task.valid?).to eq(false)
+      expect(task).to be_invalid
     end
 
     it 'is valid with another title' do
