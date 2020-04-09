@@ -34,6 +34,7 @@ RSpec.describe 'Tasks', type: :system do
       describe 'new task create page' do
         before do
           login(user)
+            task　= create(:task, user_id: user.id)
         end
         context 'when all filled in content' do
           it 'success create task' do
@@ -84,13 +85,11 @@ RSpec.describe 'Tasks', type: :system do
 
     describe 'task index' do
       context 'when click destroy button' do
+        before do
+          login(user)
+        end
         it 'success destroy task' do
-          login(user, password = 'password')
-          visit new_task_path
-          fill_in 'Title', with: 'Task1'
-          fill_in 'Content', with: 'cont'
-          select 'todo', from: 'Status'
-          click_button('Create Task')
+          task　= create(:task, user_id: user.id)
           visit tasks_path
           click_link('Destroy')
           page.driver.browser.switch_to.alert.accept
