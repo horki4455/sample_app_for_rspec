@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Sessions', type: :system do
   describe 'login behavior test' do
-      let!(:user) { create(:user, email: 'loginuser@example.com', password: 'password') }
+    let!(:user) { create(:user, email: 'loginuser@example.com', password: 'password') }
     describe 'before login' do
       context 'input value: true' do
         before do
