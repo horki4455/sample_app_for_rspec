@@ -86,11 +86,7 @@ RSpec.describe 'Tasks', type: :system do
     describe 'task index' do
       context 'when click destroy button' do
         it 'success destroy task' do
-          user = create(:user)
-          visit login_path
-          fill_in 'Email', with: user.email
-          fill_in 'Password', with: 'password'
-          click_button('Login')
+          login(user, password = 'password')
           visit new_task_path
           fill_in 'Title', with: 'Task1'
           fill_in 'Content', with: 'cont'
