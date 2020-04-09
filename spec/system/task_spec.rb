@@ -48,27 +48,26 @@ RSpec.describe 'Tasks', type: :system do
           end
         end
       end
-    end
-
-    describe 'edit task' do
-      context 'content is valid' do
-        it 'success create task' do
-          visit login_path
-          fill_in 'Email', with: user.email
-          fill_in 'Password', with: 'password'
-          click_button('Login')
-          visit edit_task_path(task)
-          fill_in 'Title', with: 'Task2'
-          fill_in 'Content', with: 'Task2'
-          select 'doing', from: 'Status'
-          fill_in 'Deadline', with: 'Time.current.since'
-          click_button('Update Task')
-          expect(page).to have_content 'Task was successfully updated.'
-          expect(page).to have_content task.reload.title
-          expect(page).to have_content task.reload.content
+      describe 'edit task' do
+        context 'content is valid' do
+          it 'success create task' do
+            visit login_path
+            fill_in 'Email', with: user.email
+            fill_in 'Password', with: 'password'
+            click_button('Login')
+            visit edit_task_path(task)
+            fill_in 'Title', with: 'Task2'
+            fill_in 'Content', with: 'Task2'
+            select 'doing', from: 'Status'
+            fill_in 'Deadline', with: 'Time.current.since'
+            click_button('Update Task')
+            expect(page).to have_content 'Task was successfully updated.'
+            expect(page).to have_content task.reload.title
+            expect(page).to have_content task.reload.content
+          end
         end
       end
-
+    end
       context '他ユーザーの編集ページにアクセスした時' do
         it '権限がないため、アクセス失敗' do
           user = create(:user)
@@ -81,7 +80,7 @@ RSpec.describe 'Tasks', type: :system do
           expect(current_path).to eq(root_path)
         end
       end
-    end
+
 
     describe 'task index' do
       context 'when click destroy button' do

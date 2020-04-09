@@ -24,17 +24,17 @@ RSpec.describe 'Sessions', type: :system do
           expect(page).to have_content 'Login failed'
         end
       end
-      describe 'after login' do
-        before do
-          login(user)
-        end
-        context 'click click_button' do
-          it 'success logout' do
-            click_link('Logout')
-            expect(current_path).to eq(root_path)
-            expect(page).to have_content 'Logged out'
-            expect(page).to have_content 'Tasks'
-          end
+    end
+    describe 'after login' do
+      before do
+        login(user)
+      end
+      context 'click click_button' do
+        it 'success logout' do
+          click_link('Logout')
+          expect(current_path).to eq(root_path)
+          expect(page).to have_content 'Logged out'
+          expect(page).to have_content 'Tasks'
         end
       end
     end
