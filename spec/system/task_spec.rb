@@ -61,7 +61,7 @@ RSpec.describe 'Tasks', type: :system do
           fill_in 'Title', with: 'Task2'
           fill_in 'Content', with: 'Task2'
           select 'doing', from: 'Status'
-          fill_in 'Deadline', with: '2020/11/22 22:22'
+          fill_in 'Deadline', with: 'Time.current.since'
           click_button('Update Task')
           expect(page).to have_content 'Task was successfully updated.'
           expect(page).to have_content task.reload.title
