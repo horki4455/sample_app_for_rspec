@@ -9,8 +9,8 @@ RSpec.describe 'Tasks', type: :system do
 
     describe 'before login' do
       describe 'task new create page' do
-        context 'no parmission' do
-          it 'fail access' do
+        context 'no permission' do
+          it 'faile to access' do
             user = create(:user)
             visit new_task_path
             expect(page).to have_content 'Login required'
@@ -51,7 +51,7 @@ RSpec.describe 'Tasks', type: :system do
     end
 
     describe 'edit task' do
-      context 'when all content true' do
+      context 'content is valid' do
         it 'success create task' do
           visit login_path
           fill_in 'Email', with: user.email

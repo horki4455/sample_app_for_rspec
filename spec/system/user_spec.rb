@@ -22,7 +22,7 @@ RSpec.describe "Users", type: :system do
           end
         end
         context 'when it blank email' do
-          it 'user create faile' do
+          it 'user create fail' do
             visit new_user_path
             fill_in 'Email', with: nil
             fill_in 'Password', with: 'password'
@@ -34,7 +34,7 @@ RSpec.describe "Users", type: :system do
         end
 
         context 'email already taken' do
-          it 'create new User :faile' do
+          it 'create new User :fail' do
             user = create(:user)
             visit new_user_path
             fill_in 'Email', with: user.email
@@ -49,7 +49,7 @@ RSpec.describe "Users", type: :system do
 
       describe 'my page' do
         context 'before login' do
-          it 'faile access to mypage' do
+          it 'fail access to mypage' do
             user = create(:user)
             visit edit_user_path(user)
             expect(current_path).to eq(login_path)
@@ -78,7 +78,7 @@ RSpec.describe "Users", type: :system do
       end
 
       context 'when email blank' do
-        it 'faile edit user' do
+        it 'fail edit user' do
           user = create(:user)
           login(user)
           visit edit_user_path(user)
@@ -108,7 +108,7 @@ RSpec.describe "Users", type: :system do
         end
       end
       context 'access other user page' do
-        it 'faile access' do
+        it 'fail access' do
           user = create(:user)
           login(user)
           visit edit_user_path(other_user)
