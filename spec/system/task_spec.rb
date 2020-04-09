@@ -84,7 +84,7 @@ RSpec.describe 'Tasks', type: :system do
     end
 
     describe 'task index' do
-      context 'When create Destroy buttonn' do
+      context 'when click destroy button' do
         it 'success destroy task' do
           user = create(:user)
           visit login_path
