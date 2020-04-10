@@ -34,7 +34,7 @@ RSpec.describe 'Tasks', type: :system do
       describe 'new task create page' do
         before do
           login(user)
-            task　= create(:task, user_id: user.id)
+          create(:task, user_id: user.id)
         end
         context 'when all filled in content' do
           it 'success create task' do
