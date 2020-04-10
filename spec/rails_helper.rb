@@ -42,6 +42,8 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
+  Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+  config.include LoginMacros
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
@@ -60,6 +62,7 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+  require 'capybara/rspec'
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
